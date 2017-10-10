@@ -227,6 +227,8 @@ oauth2.0_token <- function(endpoint, app, scope = NULL, user_params = NULL,
     client_credentials = client_credentials
   )
 
+  print("Hi Emily")
+
   Token2.0$new(
     app = app,
     endpoint = endpoint,
