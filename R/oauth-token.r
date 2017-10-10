@@ -106,6 +106,9 @@ Token <- R6::R6Class("Token", list(
     # params = scope
     msg <- serialize(list(self$endpoint, self$app, self$params$scope), NULL)
 
+    print(list(self$endpoint, self$app, self$params$scope))
+    print(paste(openssl::md5(msg[-(1:14)]), collapse = ""))
+
     # for compatibility with digest::digest()
     paste(openssl::md5(msg[-(1:14)]), collapse = "")
   },
@@ -226,8 +229,6 @@ oauth2.0_token <- function(endpoint, app, scope = NULL, user_params = NULL,
     config_init = config_init,
     client_credentials = client_credentials
   )
-
-  print("Hi Emily")
 
   Token2.0$new(
     app = app,
