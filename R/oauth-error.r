@@ -17,8 +17,8 @@ oauth2.0_errors <- c(
 known_oauth2.0_error <- function(response) {
   if (status_code(response) %in% oauth2.0_error_codes) {
     content <- content(response)
+    print(content$error)
     if (content$error %in% oauth2.0_errors) {
-      print(content$error)
       return(TRUE)
     }
   }
